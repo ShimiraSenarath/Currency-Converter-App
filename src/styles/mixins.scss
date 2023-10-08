@@ -1,0 +1,33 @@
+@mixin fullwidth() {
+    height: 100%;
+    width: 100%;
+}
+
+@mixin highlighted() {
+    position: relative;
+    &::after {
+        content: '';
+        width: 50%;
+        height: 3px;
+        background: $gray;
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        z-index: 2;
+        transform: translate(-50%, 0);
+    }
+}
+
+@mixin transition() {
+    transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+}
+
+@mixin animation() {
+    -webkit-transition: opacity .6s ease-in-out, transform 2s ease .7s;
+    -moz-transition: opacity .6s ease-in-out, transform 2s ease .7s;
+    transition: opacity .6s ease-in-out, transform 2s ease .7s;
+}

@@ -1,0 +1,120 @@
+// Main
+::selection {
+    background: $white;   
+    color: $white;
+}
+::-moz-selection {
+    background: $white;    
+    color: $white;
+}
+
+body {
+    background: $white; 
+    padding: 0;
+    margin: 0 auto;
+    font-family: 'Yantramanav', Arial, sans-serif;
+    color: $black; 
+}
+
+article,
+aside,
+details,
+figcaption,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
+}
+
+a {
+    color: $blue;
+    text-decoration: none;
+}
+
+menu,
+ol,
+ul {
+    padding: 0 !important;
+}
+
+button {
+    background: transparent;
+    border: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+section {
+    position: relative;
+}
+
+// Typography
+h1, h2, h3, p {
+    margin: 0;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-size: $large;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: $large;
+}
+
+h3 {
+    font-size: $medium;
+}
+
+p {
+    font-size: $exsmall;
+}
+
+@media (max-width: $tablet) {
+    h1, h2 {
+        font-size: $medium;
+    }
+
+    h3 {
+        font-size: $small;
+    }
+}
+
+.live-currency-value{
+    margin: 50px;
+   .baseCurrency-wrapper{
+        display: inline-flex;
+        p{
+            line-height: 16px;
+            padding: 0px 10px;
+        }
+   }
+   .targetCurrency-wrapper{
+    display: block;
+    font-size: $medium;
+   }
+}
+.currency-wrapper{
+    display: flex;
+    margin: 50px;
+    .css-q8hpuo-MuiFormControl-root{
+        margin: 0 20px;
+        label{
+            background: $white;
+            padding: 0 20px;
+        }
+    }
+}
+.filter-wrapper{
+    display: flex;
+    margin: 50px;
+    .css-q8hpuo-MuiFormControl-root,
+    .css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+        margin: 0 20px;
+    }
+}
