@@ -85,12 +85,18 @@ p {
     }
 }
 
+.container{
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
 .live-currency-value{
     margin: 50px;
    .baseCurrency-wrapper{
         display: inline-flex;
         p{
-            line-height: 16px;
+            line-height: 22px;
             padding: 0px 10px;
         }
    }
@@ -116,5 +122,25 @@ p {
     .css-q8hpuo-MuiFormControl-root,
     .css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
         margin: 0 20px;
+    }
+    button{
+        white-space: nowrap;
+    }
+}
+
+.historical-table-wrapper{
+    margin: 50px;
+    .table-responsive{
+        margin-top: 20px;
+        .thead{
+            .value-header{
+               svg{
+                padding-left: 10px;
+               } 
+            }
+            th{
+                width: 50%;
+            }
+        }
     }
 }

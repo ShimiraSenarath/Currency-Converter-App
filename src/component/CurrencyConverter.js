@@ -8,6 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 function CurrencyConverter(exchangeRate) {
@@ -29,7 +30,7 @@ function CurrencyConverter(exchangeRate) {
 
         dispatch(fetchExchangeRate(baseCurrency, targetCurrency));
         dispatch(fetchHistoricalRates(baseCurrency, targetCurrency, selectedFilter));
-        
+
       }, [baseCurrency, targetCurrency, selectedFilter, dispatch]);
 
     // List of predefined currencies
@@ -38,13 +39,20 @@ function CurrencyConverter(exchangeRate) {
   ];
   
     return (
-      <div>
-        <div className='live-currency-value'>
-            <span className='baseCurrency-wrapper'>
-                <p>1</p>{baseCurrency} <p>equals</p>
-            </span> 
-            <span className='targetCurrency-wrapper'>{exchangeRates} {targetCurrency}</span> 
-        </div>
+      <div className='container'>
+        <h2>Currency Convert</h2>
+
+        {exchangeRate !== null ? (
+            <div className='live-currency-value'>
+                <span className='baseCurrency-wrapper'>
+                    <p>1</p>{baseCurrency} <p>equals</p>
+                </span> 
+                <span className='targetCurrency-wrapper'>{exchangeRates} {targetCurrency}</span> 
+            </div>
+        ): (<>
+            <CircularProgress />
+        </>)}
+        
         <div className='currency-wrapper'>
             <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Base Currency</InputLabel>
@@ -77,7 +85,7 @@ function CurrencyConverter(exchangeRate) {
                 <MenuItem value="6months">6 months</MenuItem>
                 </Select>
             </FormControl>
-            <Button  variant="outlined" onClick={handleConvert}>Convert</Button>
+            <Button  variant="outlined" onClick={handleConvert}>View Graph</Button>
         </div>
         
         

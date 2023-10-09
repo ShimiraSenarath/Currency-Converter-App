@@ -141,7 +141,7 @@ function ExchangeRateGraph({ historicalRates =[], baseCurrency, targetCurrency})
 //   const exchangeRates = historicalRates.map((dataPoint) => dataPoint.exchangeRate); // Replace 'exchangeRate' with the actual key in your data
     const historicalRatesVal = dataColl.map((currencies)=> currencies.currencies.EUR.value);
     const historicalRatesDate = dataColl.map((currencies)=> currencies.datetime);
-    console.log(historicalRatesVal, "dates122");
+    console.log(targetCurrency, "dates122");
 
   // Create chart data
   const chartData = {
