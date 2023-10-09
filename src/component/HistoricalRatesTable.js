@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons";
 
+// Dummy data set
 const dataColl = [
     {
         "datetime": "2022-01-01T23:59:59Z",
@@ -119,11 +120,10 @@ const dataColl = [
 function HistoricalRatesTable({ historicalRates=[], baseCurrency, targetCurrency }) {
 
 
-    console.log(targetCurrency, "targetCurrency");
-
     const [sortedData, setSortedData] = useState([...dataColl]);
     const [sortOrder, setSortOrder] = useState("asc");
 
+    // sortable table
     const handleSort = () => {
       let sorted = [...sortedData].sort((a, b) => (a.currencies.EUR.value > b.currencies.EUR.value ? 1 : -1));
       if (sortOrder === "asc") {

@@ -21,7 +21,7 @@ import {
     Legend
   );
 
-
+// Dummy data set
   const dataColl = [
     {
         "datetime": "2022-01-01T23:59:59Z",
@@ -141,7 +141,6 @@ function ExchangeRateGraph({ historicalRates =[], baseCurrency, targetCurrency})
 //   const exchangeRates = historicalRates.map((dataPoint) => dataPoint.exchangeRate); // Replace 'exchangeRate' with the actual key in your data
     const historicalRatesVal = dataColl.map((currencies)=> currencies.currencies.EUR.value);
     const historicalRatesDate = dataColl.map((currencies)=> currencies.datetime);
-    console.log(targetCurrency, "dates122");
 
   // Create chart data
   const chartData = {

@@ -9,6 +9,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
+import axios from 'axios';
 
 
 function CurrencyConverter(exchangeRate) {
@@ -16,6 +17,9 @@ function CurrencyConverter(exchangeRate) {
     const [baseCurrency, setBaseCurrency] = useState('USD');
     const [targetCurrency, setTargetCurrency] = useState('EUR');
     const [selectedFilter, setSelectedFilter] = useState('7days');
+    // const [currencies, setCurrencies] = useState([]);
+
+    // const API_KEY = 'fca_live_FI52TxSmvSB156BKcFZ8QHu6LahDjYU0kwdFh6zu';
 
     const exchangeRates = useSelector((state) => state.exchangeRate);
     console.log(exchangeRates, 'exchangeRates');
@@ -37,6 +41,26 @@ function CurrencyConverter(exchangeRate) {
   const currencies = [
     'USD', 'EUR', 'JPY', 'GBP', 'AUD', 'CAD', 'CHF', 'CNY', 'SEK', 'NZD',
   ];
+
+// useEffect(() => {
+//     const fetchAvailableCurrencies = async () => {
+//       try {
+//         const response = await axios.get(
+//             `https://api.freecurrencyapi.com/v1/latest/?apikey=${API_KEY}`
+//         );
+
+//         if (response.data && response.data.data) {
+//           const currencies = Object.keys(response.data.data);
+//           setCurrencies(currencies);
+//         }
+//         console.log(currencies, "currencies");
+//       } catch (error) {
+//         console.error("Error fetching available currencies:", error);
+//       }
+//     };
+
+//     fetchAvailableCurrencies();
+//   }, []);
   
     return (
       <div className='container'>
@@ -54,6 +78,7 @@ function CurrencyConverter(exchangeRate) {
         </>)}
         
         <div className='currency-wrapper'>
+            {/* Select base Currency */}
             <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Base Currency</InputLabel>
                 <Select value={baseCurrency} onChange={(e) => setBaseCurrency(e.target.value)}>
@@ -65,6 +90,7 @@ function CurrencyConverter(exchangeRate) {
                 </Select>
                     
             </FormControl>
+            {/* Select target Currency */}
             <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Target Currency</InputLabel>
                 <Select value={targetCurrency} onChange={(e) => setTargetCurrency(e.target.value)}>
@@ -77,7 +103,9 @@ function CurrencyConverter(exchangeRate) {
             </FormControl>
             
         </div>
+        
         <div className='filter-wrapper'>
+            {/* Select filter */}
             <FormControl fullWidth>
                 <Select value={selectedFilter} onChange={(e) => setSelectedFilter(e.target.value)}>
                 <MenuItem value="7days">7 days</MenuItem>
@@ -85,6 +113,7 @@ function CurrencyConverter(exchangeRate) {
                 <MenuItem value="6months">6 months</MenuItem>
                 </Select>
             </FormControl>
+            {/* View Grapha and Table */}
             <Button  variant="outlined" onClick={handleConvert}>View Graph</Button>
         </div>
         
